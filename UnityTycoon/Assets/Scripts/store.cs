@@ -6,10 +6,10 @@ public class store : MonoBehaviour {
    
     public float BaseStoreCost;
     public float ProfitBalance;
-    private float Timer = 3;
+    public float Timer = 3;
     public bool ManagerUnlock;
     public float StoreMultiplier;
-    public int StoreTimerDivision=20;
+    public int StoreTimerDivision;
     public bool StoreUnlock;
     private float NetStoreCost;
     private float CurrentTimer = 0;
@@ -20,6 +20,10 @@ public class store : MonoBehaviour {
         NetStoreCost = BaseStoreCost;
         StartTimer = false;
 	}
+    public void SetNetStoreCost(float amt)
+    {
+         NetStoreCost=amt;
+    }
     public float GetNetStoreCost()
     {
         return NetStoreCost;

@@ -13,6 +13,7 @@ public class UIStore : MonoBehaviour {
     void OnEnable()
     {
         GameController.OnUpdateBalance += UpdateUI;
+        LoadGameData.OnLoadDataComplete += UpdateUI;
     }
 
     void Awake()
@@ -34,6 +35,8 @@ public class UIStore : MonoBehaviour {
     {
 
         CanvasGroup cg = this.transform.GetComponent<CanvasGroup>();
+
+        Debug.Log(Store.GetNetStoreCost());
         if (!Store.StoreUnlock && !GameController.Instance.CanBuy(Store.GetNetStoreCost()))
         {
             cg.interactable = false;

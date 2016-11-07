@@ -1,0 +1,38 @@
+<gamedata>
+  <CompanyName>Ren EnterPrize</CompanyName>
+
+  <StartingBalance>2.5</StartingBalance>
+<store>
+        <name>Hotel</name>
+        <BaseStoreCost>1</BaseStoreCost>
+  <ProfitBalance>.5</ProfitBalance>
+  <Timer>3</Timer>
+  <image>hotel</image>
+  <StoreMultiplier>1.1</StoreMultiplier>
+  <StoreTimerDivision>20</StoreTimerDivision>
+  <storeCount>1</storeCount>
+</store>
+
+<store>
+          <name>Lemon</name>
+          <BaseStoreCost>5</BaseStoreCost>
+  <ProfitBalance>2</ProfitBalance>
+  <Timer>5</Timer>
+  <image>lemon</image>
+  <StoreMultiplier>1.2</StoreMultiplier>
+  <StoreTimerDivision>25</StoreTimerDivision>
+  <storeCount>0</storeCount>
+</store>
+
+  <store>
+    <name>Super Market</name>
+    <BaseStoreCost>6.5</BaseStoreCost>
+    <ProfitBalance>2</ProfitBalance>
+    <Timer>5</Timer>
+    <image>supermarket</image>
+    <StoreMultiplier>1.3</StoreMultiplier>
+    <StoreTimerDivision>30</StoreTimerDivision>
+    <storeCount>0</storeCount>
+  </store>
+
+</gamedata>

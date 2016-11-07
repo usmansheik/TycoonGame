@@ -7,11 +7,11 @@ public class GameController : MonoBehaviour {
     public delegate void UpdateBalance();
     public static event UpdateBalance OnUpdateBalance;
 
-    private float CurrentBalance;
+    private float CurrentBalance=0;
     public static GameController Instance;
     // Use this for initialization
     void Start () {
-        CurrentBalance = 6.0f;
+       
         if (OnUpdateBalance != null)
         {
             OnUpdateBalance();
