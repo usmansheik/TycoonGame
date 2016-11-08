@@ -12,9 +12,12 @@ public class LoadGameData : MonoBehaviour {
     public TextAsset GameData;
     public GameObject StorePrefab;
     public GameObject StorePanel;
+
+    public GameObject ManagerPrefab;
+    public GameObject ManagerPanel;
+
     private XmlDocument xmlDoc;
-    int x = 200;
-    int y = 320;
+    
 	// Use this for initialization
 	void Start () {
         LoadData();
@@ -48,6 +51,7 @@ public class LoadGameData : MonoBehaviour {
         string Companyname = xmlDoc.GetElementsByTagName("CompanyName")[0].InnerText;
         CompanyNameText.text = Companyname;
     }
+   
     public void LoadStores()
     {
         /////Load Store
@@ -71,9 +75,7 @@ public class LoadGameData : MonoBehaviour {
         }
         NewStore.transform.SetParent(StorePanel.transform);
 
-        NewStore.transform.position = new Vector3(x, y, 0);
-
-        y = y - 100;
+        
         storeObj.SetNetStoreCost(storeObj.BaseStoreCost);
     }
     public void SetStoreObject(XmlNode StoreNode,store storeObj,GameObject NewStore)
@@ -84,6 +86,7 @@ public class LoadGameData : MonoBehaviour {
 
             Text StoreText = NewStore.transform.Find("StoreNameText").GetComponent<Text>();
             StoreText.text = StoreNode.InnerText;
+            storeObj.StoreName = StoreNode.InnerText;
         }
         if (StoreNode.Name == "image")
         {
@@ -116,7 +119,32 @@ public class LoadGameData : MonoBehaviour {
         {
             storeObj.storeCount = int.Parse(StoreNode.InnerText);
         }
+        if (StoreNode.Name=="ManagerCost")
+        {
+            CreateManager(StoreNode,storeObj);
+
+        }
+
     }
+    void CreateManager(XmlNode StoreNode,store storeObj)
+    {
+        GameObject NewManager = (GameObject)Instantiate(ManagerPrefab);
+        NewManager.transform.SetParent(ManagerPanel.transform);
+
+        Text ManagerNameText = NewManager.transform.Find("ManagerNameText").GetComponent<Text>();
+        ManagerNameText.text = storeObj.StoreName;
+        storeObj.ManagerCost= float.Parse(StoreNode.InnerText);
+        Button ManagerButton = NewManager.transform.Find("UnlockManagerButton").GetComponent<Button>();
+
+        Text ButtonText = ManagerButton.transform.Find("UnlockManagerButtonText").GetComponent<Text>();
+
+
+        ButtonText.text = "Unlock" + storeObj.ManagerCost.ToString("C2");
+        UIStore UiManager = storeObj.GetComponent<UIStore>();
+        UiManager.ManagerButton = ManagerButton;
+        ManagerButton.onClick.AddListener(storeObj.UnlockManger);
+    }
+}
    
 	
-}
+

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 public class store : MonoBehaviour {
    public int storeCount;
-   
+    public string StoreName;
     public float BaseStoreCost;
     public float ProfitBalance;
     public float Timer = 3;
@@ -14,8 +14,12 @@ public class store : MonoBehaviour {
     private float NetStoreCost;
     private float CurrentTimer = 0;
     private bool StartTimer;
-	// Use this for initialization
-	void Start () {
+   public float ManagerCost;
+    public float ManagerName;
+    // Use this for initialization
+   
+
+    void Start () {
         
         NetStoreCost = BaseStoreCost;
         StartTimer = false;
@@ -74,7 +78,18 @@ public class store : MonoBehaviour {
         //  }
     }
      
+    public void UnlockManger()
+    {
+        if (ManagerUnlock)
+            return;
+        if (GameController.Instance.CanBuy(ManagerCost))
+        {
+            GameController.Instance.AddToBalance(-ManagerCost);
+            ManagerUnlock = true;
+            this.transform.GetComponent<UIStore>().ManagerUnlock();
 
+        }
+    }
     public void OnStartTimer()
     {
         Debug.Log("Store On Click");

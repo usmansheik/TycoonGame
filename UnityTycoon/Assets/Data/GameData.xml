@@ -1,7 +1,7 @@
 <gamedata>
   <CompanyName>Ren EnterPrize</CompanyName>
 
-  <StartingBalance>2.5</StartingBalance>
+  <StartingBalance>2.2</StartingBalance>
 <store>
         <name>Hotel</name>
         <BaseStoreCost>1</BaseStoreCost>
@@ -11,6 +11,8 @@
   <StoreMultiplier>1.1</StoreMultiplier>
   <StoreTimerDivision>20</StoreTimerDivision>
   <storeCount>1</storeCount>
+  <ManagerCost>2</ManagerCost>
+  <ManagerName>Bob Smith</ManagerName>
 </store>
 
 <store>
@@ -22,6 +24,10 @@
   <StoreMultiplier>1.2</StoreMultiplier>
   <StoreTimerDivision>25</StoreTimerDivision>
   <storeCount>0</storeCount>
+  <ManagerCost>500</ManagerCost>
+  <ManagerName>Linda Sharine</ManagerName>
+
+
 </store>
 
   <store>
@@ -33,6 +39,46 @@
     <StoreMultiplier>1.3</StoreMultiplier>
     <StoreTimerDivision>30</StoreTimerDivision>
     <storeCount>0</storeCount>
+    <ManagerCost>2500</ManagerCost>
+    <ManagerName>jane Doe</ManagerName>
+
+
+  </store>
+  <store>
+    <name>LemonWater</name>
+    <BaseStoreCost>8</BaseStoreCost>
+    <ProfitBalance>.5</ProfitBalance>
+    <Timer>3</Timer>
+    <image>hotel</image>
+    <StoreMultiplier>1.1</StoreMultiplier>
+    <StoreTimerDivision>20</StoreTimerDivision>
+    <storeCount>1</storeCount>
+    <ManagerCost>5000</ManagerCost>
+    <ManagerName>Bob Smith</ManagerName>
+  </store>
+  <store>
+    <name>LemoPani</name>
+    <BaseStoreCost>10</BaseStoreCost>
+    <ProfitBalance>.5</ProfitBalance>
+    <Timer>3</Timer>
+    <image>hotel</image>
+    <StoreMultiplier>1.1</StoreMultiplier>
+    <StoreTimerDivision>20</StoreTimerDivision>
+    <storeCount>1</storeCount>
+    <ManagerCost>10000</ManagerCost>
+    <ManagerName>Bob Smith</ManagerName>
+  </store>
+  <store>
+    <name>LemoSharbat</name>
+    <BaseStoreCost>20</BaseStoreCost>
+    <ProfitBalance>.5</ProfitBalance>
+    <Timer>3</Timer>
+    <image>hotel</image>
+    <StoreMultiplier>1.1</StoreMultiplier>
+    <StoreTimerDivision>20</StoreTimerDivision>
+    <storeCount>1</storeCount>
+    <ManagerCost>200000</ManagerCost>
+    <ManagerName>Bob Smith</ManagerName>
   </store>
 
 </gamedata>

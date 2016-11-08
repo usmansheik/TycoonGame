@@ -8,6 +8,7 @@ public class UIStore : MonoBehaviour {
     public Text storeCountText;
     public Button BuyButton;
     public store Store;
+    public Button ManagerButton;
     // Use this for initialization
 
     void OnEnable()
@@ -15,7 +16,11 @@ public class UIStore : MonoBehaviour {
         GameController.OnUpdateBalance += UpdateUI;
         LoadGameData.OnLoadDataComplete += UpdateUI;
     }
-
+    public void ManagerUnlock()
+    {
+        Text ButtonText = ManagerButton.transform.Find("UnlockManagerButtonText").GetComponent<Text>();
+        ButtonText.text = "PURCHASED!";
+    }
     void Awake()
     {
         Store = transform.GetComponent<store>();
@@ -59,6 +64,17 @@ public class UIStore : MonoBehaviour {
 
             BuybuttonText.text = "Buy " + Store.GetNetStoreCost().ToString("C2");
 
+            //Update Manager Button if store afforded
+           
+
+        }
+        if (!Store.ManagerUnlock&& GameController.Instance.CanBuy(Store.ManagerCost))
+        {
+            ManagerButton.interactable = true;
+        }
+        else
+        {
+            ManagerButton.interactable = false;
         }
 
     }
